@@ -42,18 +42,22 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_tv">
 
         <Button
+            android:id="@+id/clear_btn"
             style="@style/buttonOperator"
             android:text="C" />
 
         <Button
+            android:id="@+id/del_btn"
             style="@style/buttonOperator"
             android:text="del" />
 
         <Button
+            android:id="@+id/percent_btn"
             style="@style/buttonOperator"
             android:text="%" />
 
         <Button
+            android:id="@+id/divider_btn"
             style="@style/buttonOperator"
             android:text="÷" />
 
@@ -67,18 +71,22 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_btn_1">
 
         <Button
+            android:id="@+id/number7_btn"
             style="@style/buttonNumber"
             android:text="7" />
 
         <Button
+            android:id="@+id/number8_btn"
             style="@style/buttonNumber"
             android:text="8" />
 
         <Button
+            android:id="@+id/number9_btn"
             style="@style/buttonNumber"
             android:text="9" />
 
         <Button
+            android:id="@+id/multiply_btn"
             style="@style/buttonOperator"
             android:text="×" />
 
@@ -92,18 +100,22 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_btn_2">
 
         <Button
+            android:id="@+id/number4_btn"
             style="@style/buttonNumber"
             android:text="4" />
 
         <Button
+            android:id="@+id/number5_btn"
             style="@style/buttonNumber"
             android:text="5" />
 
         <Button
+            android:id="@+id/number6_btn"
             style="@style/buttonNumber"
             android:text="6" />
 
         <Button
+            android:id="@+id/minus_btn"
             style="@style/buttonOperator"
             android:text="-" />
 
@@ -117,18 +129,22 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_btn_3">
 
         <Button
+            android:id="@+id/number1_btn"
             style="@style/buttonNumber"
             android:text="1" />
 
         <Button
+            android:id="@+id/number2_btn"
             style="@style/buttonNumber"
             android:text="2" />
 
         <Button
+            android:id="@+id/number3_btn"
             style="@style/buttonNumber"
             android:text="3" />
 
         <Button
+            android:id="@+id/plus_btn"
             style="@style/buttonOperator"
             android:text="+" />
 
@@ -142,18 +158,20 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_btn_4">
 
         <Button
+            android:id="@+id/dot_btn"
             style="@style/buttonNumber"
             android:text="." />
 
         <Button
+            android:id="@+id/number0_btn"
             style="@style/buttonNumber"
             android:text="0" />
 
         <Button
+            android:id="@+id/equal_btn"
             style="@style/buttonOperator"
             android:layout_weight="2"
             android:text="=" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
