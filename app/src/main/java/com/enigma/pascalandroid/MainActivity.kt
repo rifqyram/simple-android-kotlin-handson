@@ -1,48 +1,47 @@
 package com.enigma.pascalandroid
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.inputmethodservice.InputMethodService
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import androidx.core.view.WindowCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
-    lateinit var count: TextView
+    lateinit var calcTv: TextView
+    lateinit var lengthInput: TextInputEditText
+    lateinit var widthInput: TextInputEditText
+    lateinit var heightInput: TextInputEditText
+    lateinit var button: MaterialButton
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        count = findViewById(R.id.textView)
-        val btnIncrement: MaterialButton = findViewById(R.id.btn_increment)
-        val btnDecrement: MaterialButton = findViewById(R.id.btn_decrement)
-        btnIncrement.setOnClickListener { increment() }
-        btnDecrement.setOnClickListener { decrement() }
+        button = findViewById(R.id.calc_btn)
+        calcTv = findViewById(R.id.calc_tv)
+        lengthInput = findViewById(R.id.input_length)
+        widthInput = findViewById(R.id.input_width)
+        heightInput = findViewById(R.id.input_height)
 
-    }
-
-    private fun increment() {
-        val currentNumber = count.text.toString().toInt()
-        count.text = (currentNumber + 1).toString()
-    }
-
-    private fun decrement() {
-        val currentNumber = count.text.toString().toInt()
-
-        if (currentNumber <= 0) {
-            count.text = "0"
-        } else {
-            count.text = (currentNumber - 1).toString()
+        button.setOnClickListener {
+            if (lengthInput.text.isNullOrBlank() || heightInput.text.isNullOrBlank() || widthInput.text.isNullOrBlank()) {
+                calcTv.text = "Invalid input!"
+            } else {
+                calcOnPress()
+            }
         }
     }
+
+    private fun calculate(length: Int, width: Int, height: Int) = length * width * height
+
+    private fun calcOnPress() {
+        val length = lengthInput.text.toString().toInt()
+        val width = widthInput.text.toString().toInt()
+        val height = heightInput.text.toString().toInt()
+        val calculate = calculate(length, width, height)
+        calcTv.text = "$calculate"
+    }
+
 }
