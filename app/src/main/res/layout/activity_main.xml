@@ -8,86 +8,40 @@
     android:layout_margin="12dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/image_message"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/ic_baseline_message_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_tv_length"
+        android:id="@+id/outlinedTextField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Panjang"
-        app:layout_constraintBottom_toTopOf="@id/outline_tv_width"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="24dp"
+        android:hint="Your name"
+        app:layout_constraintTop_toBottomOf="@+id/image_message">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_length"
+            android:id="@+id/input_greeting"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_tv_width"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lebar"
-        app:layout_constraintBottom_toTopOf="@id/outline_tv_height"
-        app:layout_constraintTop_toBottomOf="@id/outline_tv_length">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_width"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outline_tv_height"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tinggi"
-        app:layout_constraintBottom_toTopOf="@+id/calc_btn"
-        app:layout_constraintTop_toBottomOf="@id/outline_tv_width">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_height"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/calc_btn"
+        android:id="@+id/greeting_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Hitung"
-        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        android:layout_marginTop="24dp"
+        android:text="Greeting"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/outline_tv_height" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="356dp" />
-
-    <TextView
-        android:id="@+id/calc_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
-        android:text="0"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+        app:layout_constraintTop_toBottomOf="@id/outlinedTextField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
