@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/drawable/rounded_edit_text.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/layout/activity_board.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_a.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_b.xml" value="0.33" />
       </map>
     </option>
   </component>
