@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/outline_btn.xml" value="0.15" />
-        <entry key="app/src/main/res/drawable/rounded_edit_text.xml" value="0.25092592592592594" />
-        <entry key="app/src/main/res/layout/activity_board.xml" value="0.35833333333333334" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35833333333333334" />
-        <entry key="app/src/main/res/layout/fragment_a.xml" value="0.35833333333333334" />
-        <entry key="app/src/main/res/layout/fragment_b.xml" value="0.33" />
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.29444444444444445" />
+        <entry key="app/src/main/res/drawable/button_outline.xml" value="0.32222222222222224" />
+        <entry key="app/src/main/res/drawable/circle_shape.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/rounded_edittext.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/rounded_outline.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/tic_tac_toe_line.xml" value="0.25092592592592594" />
+        <entry key="app/src/main/res/layout/activity_board.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_second.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/layout/fragment_a.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_b.xml" value="0.296195652173913" />
       </map>
     </option>
   </component>

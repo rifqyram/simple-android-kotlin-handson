@@ -2,34 +2,44 @@ package com.enigma.myandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.enigma.myandroid.databinding.ActivityMainBinding
 import com.enigma.myandroid.fragment.FragmentA
 import com.enigma.myandroid.fragment.FragmentB
 
-class MainActivity : AppCompatActivity(), Commiunicator {
-
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var fragmentA: FragmentA
+    private lateinit var fragmentB: FragmentB
+    var counter = 0
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val fragmentA = FragmentA()
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA)
-            .commit()
+        fragmentA = FragmentA()
+        fragmentB = FragmentB()
+
+        with(binding) {
+            supportFragmentManager.beginTransaction().add(fragmentCounter.id, fragmentA).commit()
+            supportFragmentManager.beginTransaction().add(fragmentCounterShow.id, fragmentB).commit()
+        }
     }
 
-    override fun passDataCom(editTextInput: String) {
-        val bundle = Bundle()
-        bundle.putString("message", editTextInput)
-
-        val transaction = this.supportFragmentManager.beginTransaction()
-        val fragmentB = FragmentB()
-        fragmentB.arguments = bundle
-        transaction.replace(R.id.fragment_container, fragmentB)
-        transaction.commit()
+    fun notifyIncrement() {
+        counter++
+        Log.i("Inc", "notifyIncrement: $counter")
+        fragmentB.notifyShowCounter(counter)
     }
 
-    override fun backToFragmentA() {
-        val fragmentA = FragmentA()
-        val transaction = this.supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragmentA).commit()
+    fun notifyDecrement() {
+        if (counter > 0) {
+            counter--
+            fragmentB.notifyShowCounter(counter)
+        } else {
+            fragmentB.notifyShowCounter(0)
+        }
+        Log.i("Dec", "notifyDecrement: $counter")
     }
 }

@@ -9,11 +9,13 @@ import android.widget.TextView
 import com.enigma.myandroid.Commiunicator
 import com.enigma.myandroid.MainActivity
 import com.enigma.myandroid.R
+import com.enigma.myandroid.databinding.FragmentABinding
 import com.google.android.material.button.MaterialButton
 
 class FragmentA : Fragment() {
-
-    private lateinit var communicator: Commiunicator
+    private var _binding: FragmentABinding? = null
+    private val binding get() = _binding!!
+    private lateinit var mainActivity: MainActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,17 +25,27 @@ class FragmentA : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_a, container, false)
+        _binding = FragmentABinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        communicator = activity as Commiunicator
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val btn = view.findViewById<MaterialButton>(R.id.sendBtn)
-        val textView = view.findViewById<TextView>(R.id.input_text)
+        mainActivity = activity as MainActivity
 
-        btn.setOnClickListener {
-            communicator.passDataCom(textView.text.toString())
+        with(binding) {
+            incrementBtn.setOnClickListener {
+                mainActivity.notifyIncrement()
+            }
+            decrementBtn.setOnClickListener {
+                mainActivity.notifyDecrement()
+            }
         }
+    }
 
-        return view
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

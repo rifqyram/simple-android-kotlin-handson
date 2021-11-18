@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.enigma.myandroid.Commiunicator
+import com.enigma.myandroid.MainActivity
 import com.enigma.myandroid.R
+import com.enigma.myandroid.databinding.FragmentBBinding
 import com.google.android.material.button.MaterialButton
 
 class FragmentB : Fragment() {
 
-    var displayMessage = ""
-    private lateinit var commiunicator: Commiunicator
+    private var _binding: FragmentBBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var mainActivity: MainActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,21 +26,22 @@ class FragmentB : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_b, container, false)
-
-        val textView = view.findViewById<TextView>(R.id.data_fragment2)
-        val backBtn = view.findViewById<MaterialButton>(R.id.backBtn)
-        displayMessage = arguments?.getString("message").toString()
-
-        textView.text = displayMessage
-
-        commiunicator = activity as Commiunicator
-
-        backBtn.setOnClickListener {
-            commiunicator.backToFragmentA()
-        }
-
-        return view
+        _binding = FragmentBBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mainActivity = activity as MainActivity
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    fun notifyShowCounter(counter: Int) {
+        binding.counterTv.text = counter.toString()
+    }
+
 }
