@@ -7,7 +7,7 @@ import com.enigma.myandroid.databinding.ActivityMainBinding
 import com.enigma.myandroid.fragment.FragmentA
 import com.enigma.myandroid.fragment.FragmentB
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CounterHandler {
     private lateinit var binding: ActivityMainBinding
     private lateinit var fragmentA: FragmentA
     private lateinit var fragmentB: FragmentB
@@ -27,13 +27,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun notifyIncrement() {
+    override fun notifyIncrement() {
         counter++
         Log.i("Inc", "notifyIncrement: $counter")
         fragmentB.notifyShowCounter(counter)
     }
 
-    fun notifyDecrement() {
+    override fun notifyDecrement() {
         if (counter > 0) {
             counter--
             fragmentB.notifyShowCounter(counter)
